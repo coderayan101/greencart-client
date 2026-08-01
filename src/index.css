@@ -1,0 +1,19 @@
+/* Custom Font */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+/* Tailwind CSS */
+@import "tailwindcss";
+
+* {
+    font-family: "Outfit", sans-serif;
+}
+
+/* @theme {
+    --color-primary: #4fbf8b;
+    --color-primary-dull: #44ae7c;
+} */
+@theme {
+    --color-primary: #356F23;
+    --color-primary-dull: #2D671B;
+    --color-secondary: #F2F5EC;
+}

@@ -65,9 +65,8 @@ export const footerData = {
             title: "Quick Links",
             links: [
                 { label: "All Products", to: "/products" },
-                { label: "Flash Deals", to: "/deals" },
+                { label: "Flash Deals", to: "/about" },
                 { label: "Track Order", to: "/orders" },
-                { label: "Delivery Partner", to: "/delivery" },
             ],
         },
         {

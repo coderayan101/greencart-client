@@ -37,25 +37,38 @@ const BestSeller = () => {
   });
 
   return (
-    <section className="mt-10">
+    <section className="mt-16">
       {/* Heading */}
       <div className="text-center">
-        <div className="flex items-center justify-center gap-3">
+        {/* <div className="flex items-center justify-center gap-3">
           <Leaf className="text-primary" />
 
-          <h2 className="text-2xl md:text-4xl font-bold">আমাদের পণ্য সমূহ</h2>
+          <h2 className="text-2xl md:text-3xl font-bold">আমাদের পণ্য সমূহ</h2>
 
           <Leaf className="text-primary scale-x-[-1]" />
+        </div> */}
+
+        <div className="flex flex-col items-center justify-center w-full mb-8">
+          {/* Leaves + text */}
+          <div className="flex items-center gap-3">
+            <Leaf className="text-primary" />
+            <p className="text-2xl md:text-2xl font-bold text-center">
+              আমাদের পণ্য সমূহ
+            </p>
+            <Leaf className="text-primary scale-x-[-1]" />
+          </div>
+          {/* Underline */}
+          <div className="w-16 h-0.5 bg-primary rounded-full mt-2"></div>
         </div>
 
         {/* Tabs */}
 
-        <div className="flex justify-center mt-8 gap-4 flex-wrap">
+        {/* <div className="flex justify-center mt-8 gap-4 flex-wrap">
           {categories.map((cat) => (
             <button
               key={cat.name}
               onClick={() => setActiveCategory(cat.name)}
-              className={`flex items-center gap-2 px-12 py-3 rounded-2xl font-semibold transition
+              className={`flex items-center gap-2 px-3 md:px-12 py-3 rounded-2xl font-semibold transition text-sm md:text-sm
 
               ${
                 activeCategory === cat.name
@@ -70,17 +83,17 @@ const BestSeller = () => {
               {cat.label}
             </button>
           ))}
-        </div>
+        </div> */}
       </div>
 
       {/* Products */}
 
       <div className="relative mt-6">
-        <button className="best-prev absolute -left-5 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white shadow-lg border flex items-center justify-center">
+        <button className="best-prev absolute -left-4 md:-left-7 top-1/2 -translate-y-1/2 z-20 w-8 md:w-12 h-8 md:h-12 rounded-full bg-white shadow-lg border flex items-center justify-center">
           <ChevronLeft />
         </button>
 
-        <button className="best-next absolute right-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white shadow-lg border flex items-center justify-center">
+        <button className="best-next absolute -right-4 md:-right-7 top-1/2 -translate-y-1/2 z-20 w-8 md:w-12 h-8 md:h-12 rounded-full bg-white shadow-lg border flex items-center justify-center">
           <ChevronRight />
         </button>
 
@@ -99,7 +112,7 @@ const BestSeller = () => {
               slidesPerView: 3,
             },
             1024: {
-              slidesPerView: 5,
+              slidesPerView: 6,
             },
           }}
         >
@@ -114,7 +127,10 @@ const BestSeller = () => {
       {/* View All */}
 
       <div className="flex justify-center mt-10">
-        <button onClick={() => navigate("/products")} className="border-2 border-primary text-primary px-10 py-3 rounded-full font-semibold hover:bg-primary hover:text-white transition">
+        <button
+          onClick={() => navigate("/products")}
+          className="border-2 border-primary text-primary px-10 py-3 rounded-full font-semibold hover:bg-primary hover:text-white transition"
+        >
           সব পণ্য দেখুন
         </button>
       </div>

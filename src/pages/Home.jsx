@@ -13,7 +13,7 @@ const Home = () => {
       <MainBanner />
       <div className="px-6 md:px-16 lg:px-24 xl:px-20">
         <Features />
-        {/* <Categories /> */}
+        <Categories />
         <BestSeller />
         {/* <ProductsButton /> */}
         <BottomBanner />

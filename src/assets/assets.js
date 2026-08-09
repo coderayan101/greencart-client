@@ -138,81 +138,70 @@ export const heroSectionData = {
 
 export const categories = [
   {
-    text: "Veggies",
+    text: "শাকসবজি",
     path: "Vegetables",
     image: organic_vegitable_image,
     bgColor: "#356F23",
-    // bgColor: "#FEF6DA",
   },
   {
-    text: "Fresh Fruits",
+    text: "তাজা ফল",
     path: "Fruits",
     image: fresh_fruits_image,
     bgColor: "#356F23",
-    // bgColor: "#FEE0E0",
   },
+  // {
+  //   text: "Cold Drinks",
+  //   path: "Drinks",
+  //   image: bottles_image,
+  //   bgColor: "#356F23",
+  // },
   {
-    text: "Cold Drinks",
-    path: "Drinks",
-    image: bottles_image,
-    bgColor: "#356F23",
-    // bgColor: "#F0F5DE",
-  },
-  {
-    text: "Instant Food",
+    text: "ইনস্ট্যান্ট ফুড",
     path: "Instant",
     image: maggi_image,
     bgColor: "#356F23",
-    // bgColor: "#E1F5EC",
   },
-  {
-    text: "Dairy",
-    path: "Dairy",
-    image: dairy_product_image,
-    bgColor: "#356F23",
-    // bgColor: "#FEE6CD",
-  },
+  // {
+  //   text: "Dairy",
+  //   path: "Dairy",
+  //   image: dairy_product_image,
+  //   bgColor: "#356F23",
+  // },
   // {
   //   text: "Bakery & Breads",
   //   path: "Bakery",
   //   image: bakery_image,
   //   bgColor: "#E0F6FE",
   // },
-  {
-    text: "Grains",
-    path: "Grains",
-    image: grain_image,
-    bgColor: "#356F23",
-    // bgColor: "#F1E3F9",
-  },
+  // {
+  //   text: "Grains",
+  //   path: "Grains",
+  //   image: grain_image,
+  //   bgColor: "#356F23",
+  // },
 ];
 
 export const footerLinks = [
   {
-    title: "Quick Links",
+    title: "দ্রুত লিঙ্ক",
     links: [
       { text: "Home", url: "#" },
-      { text: "Best Sellers", url: "#" },
-      { text: "Offers & Deals", url: "#" },
-      { text: "Contact Us", url: "#" },
-      { text: "FAQs", url: "#" },
+      { text: "Products", url: "#" },
+      { text: "About Us", url: "#" },
     ],
   },
   {
-    title: "Need help?",
+    title: "সাহায্য প্রয়োজন?",
     links: [
-      { text: "Delivery Information", url: "#" },
+      { text: "Terms and Conditions", url: "#" },
       { text: "Return & Refund Policy", url: "#" },
       { text: "Payment Methods", url: "#" },
-      { text: "Track your Order", url: "#" },
-      { text: "Contact Us", url: "#" },
     ],
   },
   {
-    title: "Follow Us",
+    title: "আমাদের অনুসরণ করুন",
     links: [
       { text: "Instagram", url: "#" },
-      { text: "Twitter", url: "#" },
       { text: "Facebook", url: "#" },
       { text: "YouTube", url: "#" },
     ],

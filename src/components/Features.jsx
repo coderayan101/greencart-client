@@ -2,11 +2,11 @@ import { heroSectionData } from "../assets/assets";
 
 const Features = () => {
   return (
-    <section className="py-6 md:py-8 lg:py-10">
+    <section className="hidden lg:block py-6 md:py-8 lg:py-10">
       <div className="w-[100%] max-w-[1600px] mx-auto">
         {/* Background Wrapper */}
         <div className="bg-[#F9F7F1] rounded-lg p-3 sm:p-4 md:p-6 lg:p-6">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5">
             {heroSectionData.hero_features.map((feature, index) => {
               const Icon = feature.icon;
 

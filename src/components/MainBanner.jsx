@@ -18,7 +18,7 @@ import "swiper/css/navigation";
 const banners = [
   {
     desktop: "/banner-mini-00.png",
-    mobile: "/banner-mobile2.png",
+    mobile: "/banner-mobile1.png",
     title: (
       <>
         <span className="text-primary">
@@ -40,35 +40,33 @@ const banners = [
     button2: "সব পণ্য দেখুন",
     badge: "প্রথম অর্ডারে\n২০% ছাড়",
   },
-
   {
-    desktop: "/banner-mini-0.png",
+    desktop: "/banner-mini-00.png",
     mobile: "/banner-mobile2.png",
     title: (
       <>
         <span className="text-primary">
-          মৌসুমি তাজা ফল
+          কৃষকের কাছ থেকে
         </span>
         <br />
         <span className="text-gray-900">
-          প্রতিদিন আপনার
+         সরাসরি সংগ্রহ করা
         </span>
         <br />
         <span className="text-primary">
-          বাড়িতে
+          তাজা পণ্য।
         </span>
       </>
     ),
     subtitle:
-      "প্রতিদিনের জন্য বাছাইকৃত তাজা ফল। নিরাপদ, স্বাস্থ্যকর ও সাশ্রয়ী মূল্যে।",
-    button1: "ফল কিনুন",
-    button2: "অফার দেখুন",
-    badge: "Fresh\nFruits",
+      "চাষির কাছ থেকে সরাসরি আপনার জন্য – সেরা মান, সেরা দাম, একদম ফ্রি ডেলিভারি।",
+    button1: "এখনই অর্ডার করুন",
+    button2: "সব পণ্য দেখুন",
+    badge: "প্রথম অর্ডারে\n২০% ছাড়",
   },
-
   {
-    desktop: "/banner-mini-0.png",
-    mobile: "/banner-mobile2.png",
+    desktop: "/banner-mini-00.png",
+    mobile: "/banner-mobile3.png",
     title: (
       <>
         <span className="text-primary">
@@ -76,7 +74,7 @@ const banners = [
         </span>
         <br />
         <span className="text-gray-900">
-          এখন আরও সহজ
+         এখন আরও সহজ
         </span>
         <br />
         <span className="text-primary">
@@ -85,16 +83,16 @@ const banners = [
       </>
     ),
     subtitle:
-      "চাল, ডাল, তেল, মশলা ও নিত্যপ্রয়োজনীয় সব পণ্য এক জায়গায়।",
-    button1: "এখনই কিনুন",
-    button2: "গ্রোসারি দেখুন",
-    badge: "Best\nPrice",
+      "চাষির কাছ থেকে সরাসরি আপনার জন্য – সেরা মান, সেরা দাম, একদম ফ্রি ডেলিভারি।",
+    button1: "এখনই অর্ডার করুন",
+    button2: "সব পণ্য দেখুন",
+    badge: "প্রথম অর্ডারে\n২০% ছাড়",
   },
 ];
 
 const MainBanner = () => {
   return (
-    <section className="relative">
+    <section className="relative md:mb-12 lg:mb-4">
 
       <Swiper
         modules={[Autoplay, Pagination, Navigation]}
@@ -131,9 +129,9 @@ const MainBanner = () => {
 
               <div className="absolute inset-0 flex items-center">
 
-                <div className="w-full md:w-[55%] px-6 md:px-12 lg:px-20">
+                <div className="w-full md:w-[60%] px-6 md:px-12 lg:px-20">
 
-                  <h1 className="text-3xl md:text-5xl lg:text-4xl font-extrabold leading-normal">
+                  <h1 className="text-2xl md:text-2xl lg:text-4xl font-extrabold leading-normal">
                     {banner.title}
                   </h1>
 
@@ -160,11 +158,11 @@ const MainBanner = () => {
 
                   </div>
 
-                  <div className="hidden md:flex items-center gap-5 mt-10">
+                  <div className="hidden md:flex items-center gap-4 lg:gap-5 mt-8 lg:mt-10">
 
                     <Link
                       to="/products"
-                      className="flex items-center gap-3 rounded-xl bg-primary px-8 py-4 text-white font-semibold hover:bg-primary-dull transition"
+                      className="flex items-center gap-2 rounded-xl bg-primary hover:bg-primary-dull px-5 md:px-6 lg:px-8 py-3 lg:py-4 text-white font-semibold text-sm lg:text-base"
                     >
                       <FaWhatsapp className="text-2xl"/>
 
@@ -173,7 +171,7 @@ const MainBanner = () => {
 
                     <Link
                       to="/products"
-                      className="rounded-xl border border-gray-300 bg-white px-8 py-4 font-semibold hover:bg-gray-100 transition"
+                      className="rounded-xl border border-gray-300 bg-white px-5 md:px-6 lg:px-8 py-3 lg:py-4 font-semibold hover:bg-gray-100 transition"
                     >
                       {banner.button2}
                     </Link>

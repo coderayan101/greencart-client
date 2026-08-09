@@ -16,4 +16,10 @@
     --color-primary: #356F23;
     --color-primary-dull: #2D671B;
     --color-secondary: #F2F5EC;
+    --color-green: #03A33E;
 }
+
+.no-scrollbar::-webkit-scrollbar{
+    display: none;
+}
+

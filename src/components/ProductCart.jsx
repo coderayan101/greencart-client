@@ -14,7 +14,7 @@ const ProductCart = ({product}) => {
             </div>
             <div className="text-gray-500/60 text-sm text-center">
                 {/* <p>{product.category}</p> */}
-                <p className="text-gray-700 font-medium text-lg truncate w-full">{product.name}</p>
+                <p className="text-gray-700 font-semibold text-lg truncate w-full">{product.name}</p>
                 <p className="text-gray-700 font-medium text-sm truncate w-full mt-2">{product.weight}</p>
                 <p className="md:text-xl text-base font-medium text-primary mt-2">
                     {currency}{product.offerPrice}{" "} <span className="text-gray-500/60 md:text-sm text-xs line-through">{currency}{product.price}</span>

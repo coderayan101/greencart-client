@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { assets } from "../assets/assets";
 import { useAppContext } from "../context/AppContext";
+import { Search } from "lucide-react";
 import toast from "react-hot-toast";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
+  const [showMobileSearch, setShowMobileSearch] = useState(false);
 
   const {
     user,
@@ -195,9 +197,38 @@ const Navbar = () => {
           </div>
         )}
       </div>
-
+      
       {/* Mobile Right Side */}
-      <div className="flex items-center gap-6 sm:hidden">
+      <div className="flex items-center gap-5 sm:hidden">
+        {showMobileSearch ? (
+          <div className="flex items-center border border-gray-300 rounded-full px-2 py-2 w-20">
+            <Search className="w-4 h-4 text-gray-500" />
+            <input
+              type="text"
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="পণ্য খুঁজুন"
+              className="w-full bg-transparent outline-none text-sm ml-2"
+              autoFocus
+            />
+            <button
+              onClick={() => setShowMobileSearch(false)}
+              className="text-gray-500 ml-2"
+            >
+              ✕
+            </button>
+          </div>
+        ) : (
+          <button
+            onClick={() => setShowMobileSearch(true)}
+            className="text-gray-700"
+            aria-label="Search"
+          >
+            <Search className="w-6 h-6" />
+          </button>
+        )}
+      
+
+        {/* Cart */}
         <div
           onClick={() => navigate("/cart")}
           className="relative cursor-pointer"
@@ -212,6 +243,7 @@ const Navbar = () => {
           </button>
         </div>
 
+        {/* Menu */}
         <button onClick={() => setOpen(!open)} aria-label="Menu">
           <img src={assets.menu_icon} alt="menu" />
         </button>

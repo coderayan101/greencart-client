@@ -52,13 +52,13 @@ const BestSeller = () => {
           {/* Leaves + text */}
           <div className="flex items-center gap-3">
             <Leaf className="text-primary" />
-            <p className="text-2xl md:text-2xl font-bold text-center">
+            <p className="text-lg md:text-2xl font-bold text-center">
               আমাদের পণ্য সমূহ
             </p>
             <Leaf className="text-primary scale-x-[-1]" />
           </div>
           {/* Underline */}
-          <div className="w-16 h-0.5 bg-primary rounded-full mt-2"></div>
+          <div className="w-16 h-0.5 bg-primary rounded-full mt-1"></div>
         </div>
 
         {/* Tabs */}

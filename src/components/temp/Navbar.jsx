@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
 
   const {
     user,
@@ -21,6 +22,7 @@ const Navbar = () => {
   const logout = async () => {
     try {
       const { data } = await axios.get("/api/user/logout");
+
       if (data.success) {
         toast.success(data.message);
         setUser(null);
@@ -39,8 +41,21 @@ const Navbar = () => {
     }
   }, [searchQuery]);
 
+  useEffect(() => {
+    const handleClickOutside = () => setProfileOpen(false);
+
+    if (profileOpen) {
+      document.addEventListener("click", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [profileOpen]);
+
   return (
-    <nav className="flex items-center justify-between px-6 md:px-16 lg:px-24 xl:px-24 pt-3 pb-3 border-b border-gray-300 bg-white relative transition-all">
+    <nav className="flex items-center justify-between py-3 px-6 md:px-10 lg:px-16 bg-white shadow-sm sticky top-0 z-50">
+      {/* Logo */}
       <NavLink
         to="/"
         onClick={() => setOpen(false)}
@@ -50,60 +65,61 @@ const Navbar = () => {
         <span className="text-2xl font-bold text-primary">পল্লীসেবা</span>
       </NavLink>
 
-      {/* Desktop Menu */}
+      {/* Desktop / Tablet Menu */}
       <div className="hidden sm:flex items-center gap-8">
-        <div className="hidden sm:flex items-center gap-8">
-          <NavLink to="/">
-            {({ isActive }) => (
-              <div
-                className={`relative group pb-1 ${
-                  isActive ? "text-primary" : "text-gray-700"
+        {/* Menu Links */}
+        <NavLink to="/">
+          {({ isActive }) => (
+            <div
+              className={`relative group pb-1 ${
+                isActive ? "text-primary" : "text-gray-700"
+              }`}
+            >
+              Home
+              <span
+                className={`absolute left-0 -bottom-0.5 h-[2px] bg-primary transition-all duration-300 ${
+                  isActive ? "w-full" : "w-0 group-hover:w-full"
                 }`}
-              >
-                Home
-                <span
-                  className={`absolute left-0 -bottom-0.5 h-[2px] bg-primary transition-all duration-300 ${
-                    isActive ? "w-full" : "w-0 group-hover:w-full"
-                  }`}
-                />
-              </div>
-            )}
-          </NavLink>
+              />
+            </div>
+          )}
+        </NavLink>
 
-          <NavLink to="/products">
-            {({ isActive }) => (
-              <div
-                className={`relative group pb-1 ${
-                  isActive ? "text-primary" : "text-gray-700"
+        <NavLink to="/products">
+          {({ isActive }) => (
+            <div
+              className={`relative group pb-1 ${
+                isActive ? "text-primary" : "text-gray-700"
+              }`}
+            >
+              All Product
+              <span
+                className={`absolute left-0 -bottom-0.5 h-[2px] bg-primary transition-all duration-300 ${
+                  isActive ? "w-full" : "w-0 group-hover:w-full"
                 }`}
-              >
-                All Product
-                <span
-                  className={`absolute left-0 -bottom-0.5 h-[2px] bg-primary transition-all duration-300 ${
-                    isActive ? "w-full" : "w-0 group-hover:w-full"
-                  }`}
-                />
-              </div>
-            )}
-          </NavLink>
-          <NavLink to="/about">
-            {({ isActive }) => (
-              <div
-                className={`relative group pb-1 ${
-                  isActive ? "text-primary" : "text-gray-700"
-                }`}
-              >
-                About us
-                <span
-                  className={`absolute left-0 -bottom-0.5 h-[2px] bg-primary transition-all duration-300 ${
-                    isActive ? "w-full" : "w-0 group-hover:w-full"
-                  }`}
-                />
-              </div>
-            )}
-          </NavLink>
-        </div>
+              />
+            </div>
+          )}
+        </NavLink>
 
+        <NavLink to="/about">
+          {({ isActive }) => (
+            <div
+              className={`relative group pb-1 ${
+                isActive ? "text-primary" : "text-gray-700"
+              }`}
+            >
+              About Us
+              <span
+                className={`absolute left-0 -bottom-0.5 h-[2px] bg-primary transition-all duration-300 ${
+                  isActive ? "w-full" : "w-0 group-hover:w-full"
+                }`}
+              />
+            </div>
+          )}
+        </NavLink>
+
+        {/* Search */}
         <div className="hidden lg:flex items-center text-sm gap-2 border border-gray-300 px-3 rounded-full">
           <input
             onChange={(e) => setSearchQuery(e.target.value)}
@@ -114,6 +130,7 @@ const Navbar = () => {
           <img src={assets.search_icon} alt="search" className="w-4 h-4" />
         </div>
 
+        {/* Cart */}
         <div
           onClick={() => navigate("/cart")}
           className="relative cursor-pointer"
@@ -128,6 +145,7 @@ const Navbar = () => {
           </button>
         </div>
 
+        {/* Login / Profile */}
         {!user ? (
           <button
             onClick={() => setShowUserLogin(true)}
@@ -136,26 +154,49 @@ const Navbar = () => {
             Login
           </button>
         ) : (
-          <div className="relative group">
-            <img src={assets.profile_icon} className="w-10" alt="profile" />
-            <ul className="hidden group-hover:block absolute top-10 right-0 bg-white shadow border border-gray-200 py-2.5 w-30 rounded-md text-sm z-40">
-              <li
-                onClick={() => navigate("/my-orders")}
-                className="p-1.5 pl-3 hover:bg-primary/10 cursor-pointer"
-              >
-                My Orders
-              </li>
-              <li
-                onClick={logout}
-                className="p-1.5 pl-3 hover:bg-primary/10 cursor-pointer"
-              >
-                Logout
-              </li>
-            </ul>
+          <div className="relative">
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setProfileOpen(!profileOpen);
+              }}
+              className="focus:outline-none"
+            >
+              <img
+                src={assets.profile_icon}
+                className="w-10 cursor-pointer"
+                alt="profile"
+              />
+            </button>
+
+            {profileOpen && (
+              <ul className="absolute top-12 right-0 bg-white shadow-lg border border-gray-200 py-2.5 w-36 rounded-md text-sm z-50">
+                <li
+                  onClick={() => {
+                    setProfileOpen(false);
+                    navigate("/my-orders");
+                  }}
+                  className="p-2 pl-3 hover:bg-primary/10 cursor-pointer"
+                >
+                  My Orders
+                </li>
+
+                <li
+                  onClick={() => {
+                    setProfileOpen(false);
+                    logout();
+                  }}
+                  className="p-2 pl-3 hover:bg-primary/10 cursor-pointer"
+                >
+                  Logout
+                </li>
+              </ul>
+            )}
           </div>
         )}
       </div>
 
+      {/* Mobile Right Side */}
       <div className="flex items-center gap-6 sm:hidden">
         <div
           onClick={() => navigate("/cart")}
@@ -171,17 +212,12 @@ const Navbar = () => {
           </button>
         </div>
 
-        <button
-          onClick={() => (open ? setOpen(false) : setOpen(true))}
-          aria-label="Menu"
-          className=""
-        >
-          {/* Menu Icon SVG */}
+        <button onClick={() => setOpen(!open)} aria-label="Menu">
           <img src={assets.menu_icon} alt="menu" />
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Overlay */}
       {open && (
         <div
           className="fixed inset-0 bg-black/30 z-40 md:hidden"
@@ -189,6 +225,7 @@ const Navbar = () => {
         />
       )}
 
+      {/* Mobile Sidebar */}
       <div
         className={`fixed top-[72px] right-0 h-[calc(100vh-72px)] w-64 bg-white shadow-xl border-l border-gray-200 transform transition-transform duration-300 z-50 md:hidden ${
           open ? "translate-x-0" : "translate-x-full"
@@ -225,7 +262,10 @@ const Navbar = () => {
             </button>
           ) : (
             <button
-              onClick={logout}
+              onClick={() => {
+                setOpen(false);
+                logout();
+              }}
               className="px-6 py-2 mt-2 bg-primary text-white rounded-full"
             >
               Logout

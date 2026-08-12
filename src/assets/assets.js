@@ -26,6 +26,9 @@ import bottom_banner_image from "./bottom_banner_image.png";
 import bottom_banner_image_sm from "./bottom_banner_image_sm.png";
 import add_address_image from "./add_address_image.svg";
 import organic_vegitable_image from "./organic_vegitable_image.png";
+import organic_leafygreens_image from "./organic_leafygreens_image.png";
+import organic_specialvegetable_image from "./organic_specialvegetable_image.png";
+import organic_othervegetable_image from "./organic_othervegetable_image.png";
 import fresh_fruits_image from "./fresh_fruits_image.png";
 import bottles_image from "./bottles_image.png";
 import maggi_image from "./maggi_image.png";
@@ -138,29 +141,47 @@ export const heroSectionData = {
 
 export const categories = [
   {
-    text: "শাকসবজি",
+    text: "সবজি",
     path: "Vegetables",
     image: organic_vegitable_image,
     bgColor: "#356F23",
   },
   {
-    text: "তাজা ফল",
-    path: "Fruits",
-    image: fresh_fruits_image,
+    text: "শাকপাতা",
+    path: "Leafygreens",
+    image: organic_leafygreens_image,
     bgColor: "#356F23",
   },
+  {
+    text: "বিশেষ সবজি",
+    path: "Specialvegetables",
+    image: organic_specialvegetable_image,
+    bgColor: "#356F23",
+  },
+  {
+    text: "অন্যান্য",
+    path: "Others",
+    image: organic_othervegetable_image,
+    bgColor: "#356F23",
+  },
+  // {
+  //   text: "তাজা ফল",
+  //   path: "Fruits",
+  //   image: fresh_fruits_image,
+  //   bgColor: "#356F23",
+  // },
   // {
   //   text: "Cold Drinks",
   //   path: "Drinks",
   //   image: bottles_image,
   //   bgColor: "#356F23",
   // },
-  {
-    text: "ইনস্ট্যান্ট ফুড",
-    path: "Instant",
-    image: maggi_image,
-    bgColor: "#356F23",
-  },
+  // {
+  //   text: "ইনস্ট্যান্ট ফুড",
+  //   path: "Instant",
+  //   image: maggi_image,
+  //   bgColor: "#356F23",
+  // },
   // {
   //   text: "Dairy",
   //   path: "Dairy",

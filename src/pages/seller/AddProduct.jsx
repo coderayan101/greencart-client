@@ -8,6 +8,7 @@ const AddProduct = () => {
 
   const [files, setFiles] = useState([]);
   const [name, setName] = useState("");
+  const [weight, setWeight] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");
@@ -21,6 +22,7 @@ const AddProduct = () => {
 
         const productData = {
             name,
+            weight,
             description: description.split('\n'),
             category,
             price,
@@ -38,6 +40,7 @@ const AddProduct = () => {
         if(data.success) {
             toast.success(data.message);
             setName("");
+            setWeight("");
             setDescription("");
             setCategory("");
             setPrice("");
@@ -76,6 +79,11 @@ const AddProduct = () => {
                     <label className="text-base font-medium" htmlFor="product-name">Product Name</label>
                     <input onChange={(e) => setName(e.target.value)} value={name}
                      id="product-name" type="text" placeholder="Type here" className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40" required />
+                </div>
+                <div className="flex flex-col gap-1 max-w-md">
+                    <label className="text-base font-medium" htmlFor="product-weight">Product Weight</label>
+                    <input onChange={(e) => setWeight(e.target.value)} value={weight}
+                     id="product-weight" type="text" placeholder="Type here" className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40" required />
                 </div>
                 <div className="flex flex-col gap-1 max-w-md">
                     <label className="text-base font-medium" htmlFor="product-description">Product Description</label>

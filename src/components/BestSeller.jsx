@@ -37,18 +37,11 @@ const BestSeller = () => {
   });
 
   return (
-    <section className="mt-16">
+    <section className="mt-8 md:mt-16">
       {/* Heading */}
       <div className="text-center">
-        {/* <div className="flex items-center justify-center gap-3">
-          <Leaf className="text-primary" />
-
-          <h2 className="text-2xl md:text-3xl font-bold">আমাদের পণ্য সমূহ</h2>
-
-          <Leaf className="text-primary scale-x-[-1]" />
-        </div> */}
-
-        <div className="flex flex-col items-center justify-center w-full mb-8">
+   
+        <div className="flex flex-col items-center justify-center w-full md:mb-8">
           {/* Leaves + text */}
           <div className="flex items-center gap-3">
             <Leaf className="text-primary" />

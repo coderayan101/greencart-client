@@ -23,17 +23,17 @@ const ProductCart = ({product}) => {
                 <div className="flex items-end justify-between">
                     <div onClick={(e)=> {e.stopPropagation()}} className="text-primary m-auto">
                         {!cartItems[product._id] ? (
-                            <button className="mt-5 w-full bg-primary hover:bg-primary/90 text-white rounded-xl py-3 px-5 flex items-center justify-center gap-2 font-medium transition" onClick={() => addToCart(product._id)} >
+                            <button className="mt-5 w-full bg-primary hover:bg-primary/90 text-white rounded-xl py-3 px-3 md:px-5 flex items-center justify-center gap-2 font-medium transition text-[12px] md:text-[14px]" onClick={() => addToCart(product._id)} >
                                 <img src={assets.cart_icon} alt="cart_icon" />
                                 অর্ডার করুন
                             </button>
                         ) : (
-                            <div className="mt-5 w-full bg-primary hover:bg-primary/90 text-white rounded-xl py-3 flex items-center justify-center gap-2 font-medium transition">
-                                <button onClick={() => {removeFromCart(product._id)}} className="cursor-pointer text-md px-2 h-full" >
+                            <div className="mt-5 w-full bg-primary hover:bg-primary/90 text-white rounded-xl py-[11px] flex items-center justify-center gap-2 font-medium transition">
+                                <button onClick={() => {removeFromCart(product._id)}} className="w-full cursor-pointer text-md px-3 md:px-5 h-full" >
                                     - 
                                 </button>
-                                <span className="w-5 text-center">{cartItems[product._id]}</span>
-                                <button onClick={() => {addToCart(product._id)}} className="cursor-pointer text-md px-2 h-full" >
+                                <span className="w-5 text-center text-[12px] md:text-[14px]">{cartItems[product._id]}</span>
+                                <button onClick={() => {addToCart(product._id)}} className="w-full cursor-pointer text-md px-3 md:px-5 h-full" >
                                     +
                                 </button>
                             </div>

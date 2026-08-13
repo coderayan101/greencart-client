@@ -11,7 +11,7 @@ const BottomBanner = () => {
   ];
 
   return (
-    <section className="mt-14 md:mt-20">
+    <section className="mt-14 mb-12 md:mt-20">
       <div className="max-w-8xl mx-auto">
         {/* Mobile Card */}
         <div className="md:hidden bg-[#FCFCF8] border border-[#E7E7DF] rounded-3xl p-6">

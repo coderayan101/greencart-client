@@ -11,7 +11,7 @@ const MobileBottomNav = () => {
     }`;
 
   return (
-    <nav className="fixed inset-x-0 -bottom-0 z-50 bg-primary border-t border-primary lg:hidden py-1">
+    <nav className="fixed inset-x-0 -bottom-2 z-50 bg-green border-t border-primary lg:hidden py-">
       <div className="grid grid-cols-4 h-16 pb-[env(safe-area-inset-bottom)]">
         <NavLink to="/" className={linkClass}>
           <House className="w-5 h-5 mb-1" />

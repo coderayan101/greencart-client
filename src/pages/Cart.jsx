@@ -114,7 +114,7 @@ const Cart = () => {
   }, [user]);
 
   return products.length > 0 && cartItems ? (
-    <div className="flex flex-col md:flex-row py-17 max-w-6xl w-full px-6 mx-auto">
+    <div className="flex flex-col md:flex-row py-8 md:py-17 max-w-6xl w-full px-6 mx-auto">
       <div className="flex-1 max-w-4xl">
         <h1 className="text-2xl font-bold mb-6">
           শপিং কার্ট{" "}
@@ -208,7 +208,7 @@ const Cart = () => {
         </button>
       </div>
 
-      <div className="max-w-[360px] w-full bg-gray-100/40 p-5 max-md:mt-16 border border-gray-300/70">
+      <div className="max-w-[360px] w-full bg-gray-100/40 p-5 max-md:mt-12 border border-gray-300/70">
         <h2 className="text-xl md:text-lg font-semibold">অর্ডারের সারাংশ</h2>
         <hr className="border-gray-300 my-5" />
 

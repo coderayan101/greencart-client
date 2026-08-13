@@ -56,7 +56,7 @@ const Navbar = () => {
   }, [profileOpen]);
 
   return (
-    <nav className="flex items-center justify-between py-3 px-6 md:px-10 lg:px-16 bg-white shadow-sm sticky top-0 z-50">
+    <nav className="flex items-center justify-between py-2 md:py-3 px-6 md:px-10 lg:px-16 bg-white shadow-sm sticky top-0 z-50">
       {/* Logo */}
       <NavLink
         to="/"
@@ -64,7 +64,7 @@ const Navbar = () => {
         className="flex items-center gap-3"
       >
         <img src="/palli-seva.png" alt="" className="w-14" />
-        <span className="text-2xl font-bold text-primary">পল্লীসেবা</span>
+        <span className="hidden md:block text-2xl font-bold text-primary">পল্লীসেবা</span>
       </NavLink>
 
       {/* Desktop / Tablet Menu */}
@@ -201,7 +201,7 @@ const Navbar = () => {
       {/* Mobile Right Side */}
       <div className="flex items-center gap-5 sm:hidden">
         {showMobileSearch ? (
-          <div className="flex items-center border border-gray-300 rounded-full px-2 py-2 w-20">
+          <div className="flex items-center border border-gray-300 rounded-full px-2 py-2 w-45">
             <Search className="w-4 h-4 text-gray-500" />
             <input
               type="text"

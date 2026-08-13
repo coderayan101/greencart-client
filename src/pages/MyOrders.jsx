@@ -26,9 +26,9 @@ const MyOrders = () => {
   }, [user]);
 
   return (
-    <div className="mt-16 pb-16 px-6 md:px-16 lg:px-24 xl:px-36">
+    <div className="mt-6 pb-16 px-6 md:px-16 lg:px-24 xl:px-36">
       <div className="flex flex-col items-end w-max mb-8">
-        <p className="text-2xl font-medium uppercase">My Orders</p>
+        <p className="text-lg md:text-2xl font-bold uppercase">আমার অর্ডারসমূহ</p>
         <div className="w-16 h-0.5 bg-primary rounded-full"></div>
       </div>
 
@@ -123,7 +123,7 @@ const MyOrders = () => {
                       <div className="flex items-center gap-6 md:gap-8 mt-2 text-gray-600 text-sm md:text-base">
                         <p>
                           <span className="text-sm font-semibold text-gray-800">
-                            পরিমাণ:
+                            Qty:
                           </span>{" "}
                           {item.quantity}
                         </p>

@@ -28,7 +28,7 @@ const TopBar = () => {
           href="https://chat.whatsapp.com/F2RBAfuXirT3BYmN03oHRy"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 text-[11px] md:text-sm hover:opacity-90 transition"
+          className="hidden md:flex items-center gap-2 text-[11px] md:text-sm hover:opacity-90 transition"
         >
           <span>আমাদের WhatsApp গ্রুপে জয়েন করুন</span>
           <FaWhatsapp className="text-lg md:text-xl" />

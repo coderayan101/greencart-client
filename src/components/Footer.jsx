@@ -11,7 +11,7 @@ import { Leaf } from "lucide-react";
 const Footer = () => {
   return (
     <>
-      <footer className="mt-14 md:mt-24 bg-[#EAF0E9] ">
+      <footer className="mt-2 md:mt-4 bg-[#EAF0E9] ">
         <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 py-8">
           {/* Top Links */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-8 text-sm md:text-base font-medium text-center">

@@ -1,9 +1,9 @@
 import toast from "react-hot-toast";
 import { useAppContext } from "../../context/AppContext";
-import { X } from "lucide-react";
+import { Pencil, X } from "lucide-react";
 
 const ProductList = () => {
-  const { products, currency, axios, fetchProducts } = useAppContext();
+  const { products, currency, axios, fetchProducts, navigate } = useAppContext();
 
   const toggleStock = async (id, inStock) => {
     try {
@@ -106,22 +106,41 @@ const ProductList = () => {
                     </label>
                   </td>
                   <td className="px-4 py-3">
-                    {/* Desktop / Tablet button */}
-                    <button
-                      onClick={() => deleteProduct(product._id)}
-                      className="hidden sm:inline-flex bg-red-600 text-white px-3 py-1 rounded-md hover:bg-red-700 transition"
-                    >
-                      Delete
-                    </button>
+                    <div className="flex items-center gap-2">
+                      {/* Edit button */}
+                      <button
+                        onClick={() => navigate(`/seller/edit-product/${product._id}`)}
+                        className="hidden sm:inline-flex bg-green-600 text-white px-3 py-1 rounded-md hover:bg-green-700 transition"
+                      >
+                        Edit
+                      </button>
 
-                    {/* Mobile icon */}
-                    <button
-                      onClick={() => deleteProduct(product._id)}
-                      className="sm:hidden text-red-600 hover:text-red-700 transition"
-                      aria-label="Delete product"
-                    >
-                      <X className="w-5 h-5" />
-                    </button>
+                      {/* Delete button */}
+                      <button
+                        onClick={() => deleteProduct(product._id)}
+                        className="hidden sm:inline-flex bg-red-600 text-white px-3 py-1 rounded-md hover:bg-red-700 transition"
+                      >
+                        Delete
+                      </button>
+
+                      {/* Mobile Edit icon */}
+                      <button
+                        onClick={() => navigate(`/seller/edit-product/${product._id}`)}
+                        className="sm:hidden text-blue-600 hover:text-blue-700 transition"
+                        aria-label="Edit product"
+                      >
+                        <Pencil className="w-5 h-5" />
+                      </button>
+
+                      {/* Mobile Delete icon */}
+                      <button
+                        onClick={() => deleteProduct(product._id)}
+                        className="sm:hidden text-red-600 hover:text-red-700 transition"
+                        aria-label="Delete product"
+                      >
+                        <X className="w-5 h-5" />
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))}

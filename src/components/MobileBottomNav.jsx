@@ -13,14 +13,15 @@ const MobileBottomNav = () => {
   return (
     <nav className="fixed inset-x-0 -bottom-2 z-50 bg-green border-t border-primary lg:hidden py-">
       <div className="grid grid-cols-4 h-16 pb-[env(safe-area-inset-bottom)]">
+        
         <NavLink to="/" className={linkClass}>
           <House className="w-5 h-5 mb-1" />
           <span>Home</span>
         </NavLink>
 
-        <NavLink to="/products" className={linkClass}>
-          <ShoppingBag className="w-5 h-5 mb-1" />
-          <span>Products</span>
+        <NavLink to="/my-orders" className={linkClass}>
+          <Package className="w-5 h-5 mb-1" />
+          <span>Orders</span>
         </NavLink>
 
         <NavLink to="/cart" className={linkClass}>
@@ -35,9 +36,9 @@ const MobileBottomNav = () => {
           <span>Cart</span>
         </NavLink>
 
-        <NavLink to="/my-orders" className={linkClass}>
-          <Package className="w-5 h-5 mb-1" />
-          <span>Orders</span>
+        <NavLink to="/products" className={linkClass}>
+          <ShoppingBag className="w-5 h-5 mb-1" />
+          <span>Products</span>
         </NavLink>
       </div>
     </nav>

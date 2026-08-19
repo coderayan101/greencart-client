@@ -1,4 +1,4 @@
-import { categories } from "../assets/assets";
+import { categories, subCategories } from "../assets/assets";
 import { useAppContext } from "../context/AppContext";
 
 const Categories = () => {
@@ -18,14 +18,23 @@ const Categories = () => {
             key={index}
             className="group cursor-pointer flex flex-col items-center text-center w-[72px] md:w-[96px]"
             onClick={() => {
-              navigate(`/products/${category.path.toLowerCase()}`);
+              const categorySubCategories = subCategories[category.path];
+
+              if (categorySubCategories?.length > 0) {
+                navigate(
+                  `/products/${category.path.toLowerCase()}/${categorySubCategories[0].path.toLowerCase()}`,
+                );
+              } else {
+                navigate(`/products/${category.path.toLowerCase()}`);
+              }
+
               scrollTo(0, 0);
             }}
           >
             {/* image */}
-            <div className="w-15 h-15 md:w-24 md:h-24 rounded-full bg-[#5BAA5B] flex items-center justify-center shadow-md transition-transform duration-300 group-hover:scale-105">
-              <div className="w-[54px] h-[54px] md:w-[88px] md:h-[88px] rounded-full bg-[#1F8F4A] flex items-center justify-center border-2 border-[#A8D5A8]">
-                <div className="w-[44px] h-[44px] md:w-[76px] md:h-[76px] rounded-full overflow-hidden bg-[#2EA85F]">
+            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-[#5BAA5B] flex items-center justify-center shadow-md transition-transform duration-300 group-hover:scale-105">
+              <div className="w-[72px] h-[72px] md:w-[88px] md:h-[88px] rounded-full bg-[#1F8F4A] flex items-center justify-center border-2 border-[#A8D5A8]">
+                <div className="w-[60px] h-[60px] md:w-[76px] md:h-[76px] rounded-full overflow-hidden bg-[#2EA85F]">
                   <img
                     src={category.image}
                     alt={category.text}
@@ -35,7 +44,7 @@ const Categories = () => {
               </div>
             </div>
 
-            <p className="mt-3 text-xs md:text-sm font-medium text-gray-700">
+            <p className="mt-3 text-sm md:text-sm font-medium text-gray-700">
               {category.text}
             </p>
           </div>

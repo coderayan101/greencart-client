@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useParams } from "react-router-dom";
-import { assets, categories } from "../../assets/assets";
+import { assets, categories, subCategories } from "../../assets/assets";
 import { useAppContext } from "../../context/AppContext";
 
 const EditProduct = () => {
@@ -16,8 +16,11 @@ const EditProduct = () => {
   const [weight, setWeight] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
+  const [subcategory, setSubcategory] = useState("");
   const [price, setPrice] = useState("");
   const [offerPrice, setOfferPrice] = useState("");
+
+  const currentSubCategories = subCategories[category] || [];
 
   useEffect(() => {
     const product = products.find((product) => product._id === id);
@@ -32,6 +35,7 @@ const EditProduct = () => {
         : product.description || "",
     );
     setCategory(product.category || "");
+    setSubcategory(product.subcategory || "");
     setPrice(product.price || "");
     setOfferPrice(product.offerPrice || "");
     setExistingImages(product.image || []);
@@ -44,49 +48,50 @@ const EditProduct = () => {
   };
 
   const onSubmitHandler = async (event) => {
-  try {
-    event.preventDefault();
+    try {
+      event.preventDefault();
 
-    const productData = {
-      name,
-      weight,
-      description: description.split("\n"),
-      category,
-      price,
-      offerPrice,
-    };
+      const productData = {
+        name,
+        weight,
+        description: description.split("\n"),
+        category,
+        subcategory,
+        price,
+        offerPrice,
+      };
 
-    const formData = new FormData();
+      const formData = new FormData();
 
-    formData.append("id", id);
-    formData.append("productData", JSON.stringify(productData));
+      formData.append("id", id);
+      formData.append("productData", JSON.stringify(productData));
 
-    for (let i = 0; i < files.length; i++) {
-      if (files[i]) {
-        formData.append("images", files[i]);
+      for (let i = 0; i < files.length; i++) {
+        if (files[i]) {
+          formData.append("images", files[i]);
+        }
       }
+
+      const { data } = await axios.put("/api/product/update", formData);
+
+      if (data.success) {
+        toast.success(data.message);
+
+        await fetchProducts();
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      toast.error(error.message);
     }
-
-    const { data } = await axios.put(
-      "/api/product/update",
-      formData,
-    );
-
-    if (data.success) {
-      toast.success(data.message);
-
-      await fetchProducts();
-    } else {
-      toast.error(data.message);
-    }
-  } catch (error) {
-    toast.error(error.message);
-  }
-};
+  };
 
   return (
     <div className="no-scrollbar flex-1 h-[95vh] overflow-y-scroll flex flex-col justify-between">
-      <form onSubmit={onSubmitHandler} className="md:p-10 p-4 space-y-5 max-w-lg">
+      <form
+        onSubmit={onSubmitHandler}
+        className="md:p-10 p-4 space-y-5 max-w-lg"
+      >
         <h2 className="text-xl font-semibold">Edit Product</h2>
 
         {/* Product Images */}
@@ -180,7 +185,10 @@ const EditProduct = () => {
           </label>
 
           <select
-            onChange={(e) => setCategory(e.target.value)}
+            onChange={(e) => {
+              setCategory(e.target.value);
+              setSubcategory("");
+            }}
             value={category}
             id="category"
             className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40"
@@ -194,6 +202,31 @@ const EditProduct = () => {
             ))}
           </select>
         </div>
+        
+        {/* Subcategory */}
+        {currentSubCategories.length > 0 && (
+          <div className="w-full flex flex-col gap-1">
+            <label className="text-base font-medium" htmlFor="subcategory">
+              Subcategory
+            </label>
+
+            <select
+              onChange={(e) => setSubcategory(e.target.value)}
+              value={subcategory}
+              id="subcategory"
+              className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40"
+              required
+            >
+              <option value="">Select Subcategory</option>
+
+              {currentSubCategories.map((item, index) => (
+                <option key={index} value={item.path}>
+                  {item.text}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
 
         {/* Prices */}
         <div className="flex items-center gap-5 flex-wrap">

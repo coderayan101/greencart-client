@@ -29,6 +29,8 @@ import organic_vegitable_image from "./organic_vegitable_image.png";
 import organic_leafygreens_image from "./organic_leafygreens_image.png";
 import organic_specialvegetable_image from "./organic_specialvegetable_image.png";
 import organic_othervegetable_image from "./organic_othervegetable_image.png";
+import eggs_image from "./eggs_image.png";
+import daily_product_image from "./daily_product_image.png";
 import fresh_fruits_image from "./fresh_fruits_image.png";
 import bottles_image from "./bottles_image.png";
 import maggi_image from "./maggi_image.png";
@@ -51,7 +53,6 @@ import orange_image from "./orange_image.png";
 import pepsi_image from "./pepsi_image.png";
 import wheat_flour_image from "./wheat_flour_image.png";
 import cheese_image from "./cheese_image.png";
-import eggs_image from "./eggs_image.png";
 import spinach_image_1 from "./spinach_image_1.png";
 import onion_image_1 from "./onion_image_1.png";
 import banana_image_1 from "./banana_image_1.png";
@@ -147,61 +148,57 @@ export const categories = [
     bgColor: "#356F23",
   },
   {
-    text: "শাকপাতা",
-    path: "Leafygreens",
-    image: organic_leafygreens_image,
+    text: "ডিম",
+    path: "Eggs",
+    image: eggs_image,
     bgColor: "#356F23",
   },
   {
-    text: "বিশেষ সবজি",
-    path: "Specialvegetables",
-    image: organic_specialvegetable_image,
+    text: "ভুষিমাল",
+    path: "Grains",
+    image: grain_image,
     bgColor: "#356F23",
   },
   {
-    text: "অন্যান্য",
-    path: "Others",
-    image: organic_othervegetable_image,
+    text: "নিত্য প্রয়োজনীয় পণ্য",
+    path: "Daily-Used-Products",
+    image: daily_product_image,
     bgColor: "#356F23",
   },
-  // {
-  //   text: "তাজা ফল",
-  //   path: "Fruits",
-  //   image: fresh_fruits_image,
-  //   bgColor: "#356F23",
-  // },
-  // {
-  //   text: "Cold Drinks",
-  //   path: "Drinks",
-  //   image: bottles_image,
-  //   bgColor: "#356F23",
-  // },
-  // {
-  //   text: "ইনস্ট্যান্ট ফুড",
-  //   path: "Instant",
-  //   image: maggi_image,
-  //   bgColor: "#356F23",
-  // },
-  // {
-  //   text: "Dairy",
-  //   path: "Dairy",
-  //   image: dairy_product_image,
-  //   bgColor: "#356F23",
-  // },
-  // {
-  //   text: "Bakery & Breads",
-  //   path: "Bakery",
-  //   image: bakery_image,
-  //   bgColor: "#E0F6FE",
-  // },
-  // {
-  //   text: "Grains",
-  //   path: "Grains",
-  //   image: grain_image,
-  //   bgColor: "#356F23",
-  // },
 ];
 
+export const subCategories = {
+  Vegetables: [
+    {
+      text: "সবজি",
+      path: "Vegetables",
+      image: organic_vegitable_image,
+    },
+    {
+      text: "শাকপাতা",
+      path: "Leafy-Greens",
+      image: organic_leafygreens_image,
+    },
+    {
+      text: "বিশেষ সবজি",
+      path: "Special-Vegetables",
+      image: organic_specialvegetable_image,
+    },
+    {
+      text: "অন্যান্য",
+      path: "Other-Vegetables",
+      image: organic_othervegetable_image,
+    },
+  ],
+
+  Grains: [
+    // Future subcategories will go here
+  ],
+
+  "Daily-Used-Products": [
+    // Future subcategories will go here
+  ],
+};
 export const footerLinks = [
   {
     title: "দ্রুত লিঙ্ক",

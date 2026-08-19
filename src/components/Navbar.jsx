@@ -64,7 +64,7 @@ const Navbar = () => {
         className="flex items-center gap-3"
       >
         <img src="/palli-seva.png" alt="" className="w-14" />
-        <span className="hidden md:block text-2xl font-bold text-primary">পল্লীসেবা</span>
+        <span className="text-2xl font-bold text-primary">পল্লীসেবা</span>
       </NavLink>
 
       {/* Desktop / Tablet Menu */}
@@ -201,7 +201,7 @@ const Navbar = () => {
       {/* Mobile Right Side */}
       <div className="flex items-center gap-5 sm:hidden">
         {showMobileSearch ? (
-          <div className="flex items-center border border-gray-300 rounded-full px-2 py-2 w-45">
+          <div className="flex items-center border border-gray-300 rounded-full px-2 py-2 w-20">
             <Search className="w-4 h-4 text-gray-500" />
             <input
               type="text"

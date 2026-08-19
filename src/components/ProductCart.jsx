@@ -8,7 +8,7 @@ const ProductCart = ({product}) => {
    const {currency, addToCart, removeFromCart, cartItems, navigate} = useAppContext();
 
     return product && (
-        <div onClick={()=> {navigate(`/products/${product.category.toLowerCase()}/${product._id}`); scrollTo(0,0)}} className="border border-gray-500/20 rounded-2xl px-2 md:px-2 pb-3 bg-white min-w-26 max-w-56 w-full">
+        <div onClick={()=> {navigate( `/products/${product.category.toLowerCase()}/product/${product._id}`); scrollTo(0,0)}} className="border border-gray-500/20 rounded-2xl px-2 md:px-2 pb-3 bg-white min-w-26 max-w-56 w-full">
             <div className="group cursor-pointer flex items-center justify-center px-2">
                 <img className="group-hover:scale-112 transition max-w-26 md:max-w-36" src={product.image[0]} alt={product.name} />
             </div>

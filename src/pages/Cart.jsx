@@ -37,18 +37,21 @@ const Cart = () => {
     }
     setCartArray(tempArray);
   };
-  
+
   const getUserAddress = async () => {
     try {
       const { data } = await axios.post("/api/address/get", {
         userId: user._id,
       });
+      
       if (data.success) {
         setAddresses(data.addresses);
         if (data.addresses.length > 0) {
+          setAddresses(data.addresses);
           setSelectedAddress(data.addresses[0]);
         } else {
-          toast.error(data.message);
+          setAddresses([]);
+          setSelectedAddress(null);
         }
       }
     } catch (error) {
@@ -136,7 +139,7 @@ const Cart = () => {
               <div
                 onClick={() => {
                   navigate(
-                    `/products/${product.category.toLowerCase()}/${product._id}`,
+                    `/products/${product.category.toLowerCase()}/product/${product._id}`,
                   );
                   scrollTo(0, 0);
                 }}
@@ -151,7 +154,9 @@ const Cart = () => {
               <div>
                 <p className="font-semibold">{product.name}</p>
                 <div className="font-normal text-gray-500/70">
-                  <p>ওজন: <span>{product.weight || "N/A"}</span></p>
+                  <p>
+                    ওজন: <span>{product.weight || "N/A"}</span>
+                  </p>
                   <div className="flex items-center">
                     <p>Qty:</p>
                     <select

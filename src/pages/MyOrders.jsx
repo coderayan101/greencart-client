@@ -50,53 +50,53 @@ const MyOrders = () => {
           </p>
 
           {order.items.map((item, index) => {
-            if (!item.product) {
-              return (
-                <div
-                  key={index}
-                  className={`${
-                    order.items.length !== index + 1 ? "border-b" : ""
-                  } border-gray-200 py-5`}
-                >
-                  <div className="flex items-center gap-4">
-                    {/* Blank image box */}
-                    <div className="w-20 h-20 md:w-24 md:h-24 border border-gray-300 rounded-lg bg-gray-100 flex items-center justify-center">
-                      <span className="text-gray-400 text-xs text-center px-2">
-                        No Image
-                      </span>
-                    </div>
+            // if (!item.product) {
+            //   return (
+            //     <div
+            //       key={index}
+            //       className={`${
+            //         order.items.length !== index + 1 ? "border-b" : ""
+            //       } border-gray-200 py-5`}
+            //     >
+            //       <div className="flex items-center gap-4">
+            //         {/* Blank image box */}
+            //         <div className="w-20 h-20 md:w-24 md:h-24 border border-gray-300 rounded-lg bg-gray-100 flex items-center justify-center">
+            //           <span className="text-gray-400 text-xs text-center px-2">
+            //             No Image
+            //           </span>
+            //         </div>
 
-                    {/* Product unavailable text */}
-                    <div>
-                      <h2 className="text-lg md:text-xl font-medium text-gray-500">
-                        এই পণ্যটি আর উপলব্ধ নেই
-                      </h2>
+            //         {/* Product unavailable text */}
+            //         <div>
+            //           <h2 className="text-lg md:text-xl font-medium text-gray-500">
+            //             এই পণ্যটি আর উপলব্ধ নেই
+            //           </h2>
 
-                      <div className="flex items-center gap-8 mt-2 text-gray-500 text-sm md:text-base">
-                        <p>
-                          <span className="font-medium text-gray-700">
-                            Quantity:
-                          </span>{" "}
-                          {item.quantity}
-                        </p>
-                        <p>
-                          <span className="font-medium text-gray-700">
-                            Weight:
-                          </span>{" "}
-                          --
-                        </p>
-                        <p>
-                          <span className="font-medium text-gray-700">
-                            Amount:
-                          </span>{" "}
-                          {currency}0
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            }
+            //           <div className="flex items-center gap-8 mt-2 text-gray-500 text-sm md:text-base">
+            //             <p>
+            //               <span className="font-medium text-gray-700">
+            //                 Quantity:
+            //               </span>{" "}
+            //               {item.quantity}
+            //             </p>
+            //             <p>
+            //               <span className="font-medium text-gray-700">
+            //                 Weight:
+            //               </span>{" "}
+            //               --
+            //             </p>
+            //             <p>
+            //               <span className="font-medium text-gray-700">
+            //                 Amount:
+            //               </span>{" "}
+            //               {currency}0
+            //             </p>
+            //           </div>
+            //         </div>
+            //       </div>
+            //     </div>
+            //   );
+            // }
 
             return (
               <div
@@ -109,15 +109,15 @@ const MyOrders = () => {
                   <div className="flex items-center gap-4">
                     <div className="w-20 h-20 md:w-24 md:h-24 border border-gray-300 rounded-lg overflow-hidden bg-gray-50 flex items-center justify-center">
                       <img
-                        src={item.product.image[0]}
-                        alt={item.product.name}
+                        src={item.image}
+                        alt={item.name}
                         className="w-full h-full object-cover"
                       />
                     </div>
 
                     <div>
                       <h2 className="text-lg md:text-xl font-medium text-gray-800">
-                        {item.product.name}
+                        {item.name}
                       </h2>
 
                       <div className="flex items-center gap-6 md:gap-8 mt-2 text-gray-600 text-sm md:text-base">
@@ -131,14 +131,14 @@ const MyOrders = () => {
                           <span className="text-sm font-semibold text-gray-800">
                             ওজন:
                           </span>{" "}
-                          {item.product.weight}
+                          {item.weight}
                         </p>
                         <p>
                           <span className="text-sm font-semibold text-gray-800">
                             দাম:
                           </span>{" "}
                           {currency}
-                          {item.product.offerPrice * item.quantity}
+                          {item.price * item.quantity}
                         </p>
                       </div>
                     </div>

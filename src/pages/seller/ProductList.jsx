@@ -64,6 +64,7 @@ const ProductList = () => {
                 <th className="px-4 py-3 font-semibold truncate">Action</th>
               </tr>
             </thead>
+
             <tbody className="text-sm text-gray-500">
               {products.map((product) => (
                 <tr key={product._id} className="border-t border-gray-500/20">
@@ -101,11 +102,11 @@ const ProductList = () => {
                         type="checkbox"
                         className="sr-only peer"
                       />
-                      <div className="w-10 h-5 md:w-12 md:h-7 bg-slate-300 rounded-full peer peer-checked:bg-blue-600 transition-colors duration-200"></div>
-                      <span className="dot absolute left-1 top-1 w-3 h-3 md:w-5 md:h-5 bg-white rounded-full transition-transform duration-200 ease-in-out peer-checked:translate-x-5"></span>
+                      <div className="w-9 h-5 md:w-12 md:h-7 bg-slate-300 rounded-full peer peer-checked:bg-blue-600 transition-colors duration-200"></div>
+                      <span className="dot absolute left-1 top-1 w-2 h-3 md:w-5 md:h-5 bg-white rounded-full transition-transform duration-200 ease-in-out peer-checked:translate-x-5"></span>
                     </label>
                   </td>
-                  <td className="px-4 py-3">
+                  <td className="px-2 py-3">
                     <div className="flex items-center gap-2">
                       {/* Edit button */}
                       <button

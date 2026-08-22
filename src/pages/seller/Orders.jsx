@@ -57,7 +57,7 @@ const Orders = () => {
 
   return (
     <div className="no-scrollbar flex-1 h-[95vh] overflow-y-scroll">
-      <div className="md:p-10 p-4 space-y-4">
+      <div className="p-4 md:p-6 lg:p-10 space-y-4">
         <h2 className="text-lg font-medium">Orders List</h2>
 
         {orders.map((order) => (
@@ -79,10 +79,7 @@ const Orders = () => {
 
               <div className="space-y-3">
                 {order.items.map((item, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center gap-3"
-                  >
+                  <div key={index} className="flex items-center gap-3">
                     {/* Product Image */}
                     <div className="w-12 h-12 rounded-md overflow-hidden border border-gray-200 bg-gray-50 flex-shrink-0">
                       {item.image ? (
@@ -101,7 +98,7 @@ const Orders = () => {
                     </div>
 
                     {/* Product Details */}
-                    <div>
+                    {/* <div>
                       <p className="font-medium">
                         {item.name}
                         <span className="text-gray-500">
@@ -129,6 +126,33 @@ const Orders = () => {
                           {item.price * item.quantity}
                         </span>
                       </div>
+                    </div> */}
+                    <div className="min-w-0 flex-1">
+                      <p className="font-medium text-sm md:text-sm lg:text-base truncate">
+                        {item.name}
+                        <span className="text-gray-500">
+                          {" - "}
+                          {item.weight}
+                        </span>
+                      </p>
+
+                      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1 text-xs md:text-xs lg:text-sm text-gray-500">
+                        <span>Qty: {item.quantity}</span>
+
+                        <span className="hidden md:inline">•</span>
+
+                        <span>
+                          Price: {currency}
+                          {item.price}
+                        </span>
+
+                        <span className="hidden md:inline">•</span>
+
+                        <span>
+                          Total: {currency}
+                          {item.price * item.quantity}
+                        </span>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -148,8 +172,7 @@ const Orders = () => {
               </p>
 
               <p>
-                {order.address?.state},{" "}
-                {order.address?.zipcode},{" "}
+                {order.address?.state}, {order.address?.zipcode},{" "}
                 {order.address?.country}
               </p>
 
@@ -170,8 +193,7 @@ const Orders = () => {
               </p>
 
               <p>
-                <span className="font-medium">Method:</span>{" "}
-                {order.paymentType}
+                <span className="font-medium">Method:</span> {order.paymentType}
               </p>
 
               <p>
@@ -185,8 +207,7 @@ const Orders = () => {
               </p>
 
               <p>
-                <span className="font-medium">Status:</span>{" "}
-                {order.status}
+                <span className="font-medium">Status:</span> {order.status}
               </p>
 
               <button
@@ -200,9 +221,7 @@ const Orders = () => {
               >
                 <CircleCheck className="w-5 h-5" />
 
-                {order.status === "Delivered"
-                  ? "Delivered"
-                  : "Mark delivered"}
+                {order.status === "Delivered" ? "Delivered" : "Delivered"}
               </button>
             </div>
           </div>

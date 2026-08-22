@@ -43,14 +43,14 @@ const ProductList = () => {
 
   return (
     <div className="no-scrollbar flex-1 h-[95vh] overflow-y-scroll flex flex-col justify-between">
-      <div className="w-full md:p-10 p-4">
+      <div className="w-full md:p-6 lg:p-10 p-4">
         <h2 className="pb-4 text-lg font-medium">All Products</h2>
         <div className="flex flex-col items-center max-w-4xl w-full overflow-hidden rounded-md bg-white border border-gray-500/20">
           <table className="md:table-auto table-fixed w-full overflow-hidden">
             <thead className="text-gray-900 text-sm text-left">
               <tr>
                 <th className="px-4 py-3 font-semibold truncate">Product</th>
-                <th className="px-4 py-3 font-semibold truncate hidden md:block">
+                <th className="px-4 py-3 font-semibold truncate hidden lg:block">
                   Category
                 </th>
                 <th className="px-4 py-3 font-semibold truncate">Weight</th>
@@ -58,7 +58,7 @@ const ProductList = () => {
                   Price
                 </th>
                 <th className="px-4 py-3 font-semibold truncate">
-                  Selling Price
+                  S-Price
                 </th>
                 <th className="px-4 py-3 font-semibold truncate">In Stock</th>
                 <th className="px-4 py-3 font-semibold truncate">Action</th>
@@ -80,7 +80,7 @@ const ProductList = () => {
                       {product.name}
                     </span>
                   </td>
-                  <td className="px-4 py-3 max-sm:hidden">
+                  <td className="px-4 py-3 hidden lg:table-cell">
                     {product.category}
                   </td>
                   <td className="px-4 py-3">{product.weight}</td>
@@ -102,8 +102,8 @@ const ProductList = () => {
                         type="checkbox"
                         className="sr-only peer"
                       />
-                      <div className="w-9 h-5 md:w-12 md:h-7 bg-slate-300 rounded-full peer peer-checked:bg-blue-600 transition-colors duration-200"></div>
-                      <span className="dot absolute left-1 top-1 w-2 h-3 md:w-5 md:h-5 bg-white rounded-full transition-transform duration-200 ease-in-out peer-checked:translate-x-5"></span>
+                      <div className="w-9 h-5 md:w-10 md:h-5 lg:w-12 lg:h-7 bg-slate-300 rounded-full peer peer-checked:bg-blue-600 transition-colors duration-200"></div>
+                      <span className="dot absolute left-1 top-1 w-2 h-3 md:w-3 md:h-3 lg:w-5 lg:h-5 bg-white rounded-full transition-transform duration-200 ease-in-out peer-checked:translate-x-5"></span>
                     </label>
                   </td>
                   <td className="px-2 py-3">
@@ -111,7 +111,7 @@ const ProductList = () => {
                       {/* Edit button */}
                       <button
                         onClick={() => navigate(`/seller/edit-product/${product._id}`)}
-                        className="hidden sm:inline-flex bg-green-600 text-white px-3 py-1 rounded-md hover:bg-green-700 transition"
+                        className="hidden md:inline-flex bg-green-600 text-white px-3 py-1 rounded-md hover:bg-green-700 transition"
                       >
                         Edit
                       </button>

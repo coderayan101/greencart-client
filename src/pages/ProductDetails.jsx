@@ -30,7 +30,7 @@ const ProductDetails = () => {
   return (
     product && (
       <div className="mt-8 md:mt-12 px-6 md:px-16 lg:px-24 xl:px-36">
-        <p>
+        <p className="hidden md:block">
           <Link to="/">Home</Link> /<Link to="/products"> Products</Link> /
           <Link to={`/products/${product.category.toLowerCase()}`}>
             {" "}
@@ -58,7 +58,7 @@ const ProductDetails = () => {
                 <div
                   key={index}
                   onClick={() => setThumbnail(image)}
-                  className="border  max-w-0 md:max-w-24 border-gray-500/30 rounded overflow-hidden cursor-pointer"
+                  className="border max-w-0 md:max-w-24 border-gray-500/30 rounded overflow-hidden cursor-pointer"
                 >
                   <img src={image} alt={`Thumbnail ${index + 1}`} />
                 </div>

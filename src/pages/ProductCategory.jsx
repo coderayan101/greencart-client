@@ -96,9 +96,17 @@ const ProductCategory = () => {
           ))}
         </div>
       ) : (
-        <div className="flex items-center justify-center h-[60vh]">
-          <p className="text-2xl font-medium text-primary">
-            No products found in this category.
+        // <div className="flex items-center justify-center h-[60vh]">
+        //   <p className="text-2xl font-medium text-primary">
+        //     No products found in this category.
+        //   </p>
+        // </div>
+        <div className="flex flex-col items-center justify-center py-20 md:py-16 text-center">
+          <h2 className="text-xl md:text-2xl font-semibold text-primary">
+            Products Coming Soon!
+          </h2>
+          <p className="mt-2 text-gray-500">
+            আমরা শীঘ্রই পণ্য যুক্ত করছি।
           </p>
         </div>
       )}

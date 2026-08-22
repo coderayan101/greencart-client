@@ -244,7 +244,7 @@ const Navbar = () => {
         </div>
 
         {/* Menu */}
-        <button onClick={() => setOpen(!open)} aria-label="Menu">
+        <button className="" onClick={() => setOpen(!open)} aria-label="Menu">
           <img src={assets.menu_icon} alt="menu" />
         </button>
       </div>
